@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Main
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <tr>
+            <th class="text-start">Symbol</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Unit Price</th>
+            <th class="text-end">Total Price</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <th class="text-start">{{ record.symbol }}</th>
+            <th class="text-end">{{ record.shares }}</th>
+            <th class="text-end">{{ record.unit_price | usd }}</th>
+            <th class="text-end">{{ record.total_price | usd }}</tr>
+        </tr>
+        {% endfor%}
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="3">Cash</td>
+            <td class="border-0 text-end">{{ cash | usd }}</td>
+        </tr>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="3">Total</td>
+            <td class="border-0 w-bold text-end">{{ total | usd }}</td>
+        </tr>
+
+    </table>
+{% endblock %}

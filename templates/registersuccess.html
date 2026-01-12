@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Register Success
+{% endblock %}
+
+{% block main %}
+<script>
+    setTimeout(function() {
+            window.location.href = "/login";
+    }, 1);
+</script>
+<p>Register Success! Jumping to login menu...</p>
+{% endblock %}

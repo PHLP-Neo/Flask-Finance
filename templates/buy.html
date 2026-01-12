@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Buy
+{% endblock %}
+
+{% block main %}
+{% if (state is defined) %}
+<script>
+    setTimeout(function() {
+        window.location.href = "/";
+    }, 1);
+</script>
+<p>Bought! Return to main menu...</p>
+{% else %}
+<form action="/buy" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol"
+            type="text">
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" class="form-control mx-auto w-auto" min="1" name="shares" placeholder="Shares"
+            type="number">
+    </div>
+    <button class="btn btn-primary" type="submit">Buy</button>
+</form>
+{% endif %}
+{% endblock %}

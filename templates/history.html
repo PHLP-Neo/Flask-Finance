@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+history
+{% endblock %}
+
+{% block main %}
+</form>
+<table class="table table-striped">
+    <tr>
+        <th class="text-start">Symbol</th>
+        <th class="text-end">Shares</th>
+        <th class="text-end">Price</th>
+        <th class="text-end">Transacted</th>
+    </tr>
+    {% for record in records %}
+    <tr>
+        <th class="text-start">{{ record.symbol }}</th>
+        <th class="text-end">{{ record.shares }}</th>
+        <th class="text-end">{{ record.price | usd }}</th>
+        <th class="text-end">{{ record.transacted }}
+    </tr>
+    </tr>
+    {% endfor%}
+</table>
+{% endblock %}
